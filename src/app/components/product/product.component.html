@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="row">
+      <div class="col-12 col-lg-3 col-md-4 col-sm-6 mt-4 " *ngFor = "let product of productItems">
+          <div class="card p-1" >
+              <div class="position-absolute mt-4 rounded-3 ">
+                  <span class="badge {{product.availableQty? 'bg-success' : 'bg-danger'}} ">{{product.availableQty != 0?'In Stock':'Out of stock'}}</span>
+              </div>
+
+              <img src="{{product.images[0]}}" class="card-image" alt="img" height="380px" >
+                 <div class="card-body">
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <button class="btn bg-info p-0 col-4 fw-bolder text-white">{{'Price '+product.price+'$'}}</button>
+
+                  <div>
+                      <i class="fa-solid fa-star text-warning" *ngFor="let star of [].constructor(product.rating)"></i>
+                  </div>
+
+                  <p class="card-text">{{product.description}}</p>
+              <div class="d-flex justify-content-between">
+                <a href="#" class="btn {{product.availableQty? 'btn-primary': 'btn-secondary'}}"   [class.disabled]="!product.availableQty" (click)="AddProduct(product)">Add to cart</a>
+                <a href="#" class="link-underline-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="openProductModal(product)">view more</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-product-popup *ngIf="selectedProduct" [product]="selectedProduct"></app-product-popup>
+
+

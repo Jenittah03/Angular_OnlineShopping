@@ -32,9 +32,14 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "@ng-select/ng-select/themes/default.theme.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -98,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "282bd406-d50b-43e5-8e83-afd7d789f228"
   }
 }
